@@ -32,3 +32,7 @@ From the root directory, run:
 g++ -o scheduler src/main.cpp src/PriorityQueue.cpp
 ./scheduler
 ```
+
+## Project Versions
+* **[Stable] Pure Logic (Current Branch):** A clean implementation of a Binary Max-Heap Priority Queue.
+* **[Advanced] Real-Time Simulation:** [Click here to see the version with a system clock and task durations.](https://github.com/benjaminwoodruff1/task-scheduler/tree/feature/system-clock)
