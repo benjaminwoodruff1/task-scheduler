@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-enum SignalType { HARDWARE_INTERRUPT, BACKGROUND_TASK };
+enum SignalType { HARDWARE_INTERRUPT, BACKGROUND_TASK }; // Set the Signal types
 
 struct Signal {
     std::string name;
@@ -13,7 +13,7 @@ struct Signal {
 
     Signal(std::string n, int p, SignalType t) : name(n), priority(p), type(t) {}
 
-    bool operator<(const Signal& other) const {
+    bool operator<(const Signal& other) const { // Comparator for priority
         return this->priority < other.priority;
     }
 };

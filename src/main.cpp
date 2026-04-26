@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PriorityQueue.h"
+#include "../include/PriorityQueue.h"
 
 int main() {
     PriorityQueue<Signal> scheduler;
@@ -16,7 +16,7 @@ int main() {
     while (!scheduler.empty()) {
         Signal top = scheduler.top(); // Get highest priority
         
-        if (top.priority > 7) {
+        if (top.priority > 7) { // Arbitrary threshold for critical signals
             std::cout << "[CRITICAL] ";
         } else {
             std::cout << "[NORMAL]   ";
