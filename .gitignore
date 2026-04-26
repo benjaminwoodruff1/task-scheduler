@@ -38,6 +38,8 @@
 *.exe
 *.out
 *.app
+scheduler_test
+scehduler
 
 # Build directories
 build/
