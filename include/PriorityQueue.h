@@ -10,8 +10,9 @@ struct Signal {
     std::string name;
     int priority;
     SignalType type;
+    int processingTime; // Task processing time
 
-    Signal(std::string n, int p, SignalType t) : name(n), priority(p), type(t) {}
+    Signal(std::string n, int p, SignalType t, int duration = 1) : name(n), priority(p), type(t), processingTime(duration) {}
 
     bool operator<(const Signal& other) const { // Comparator for priority
         return this->priority < other.priority;

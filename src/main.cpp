@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono> // For millisec timing
+#include <thread>   // For sleep_for
 #include "../include/PriorityQueue.h"
 
 int main() {
@@ -11,9 +13,11 @@ int main() {
     scheduler.push(Signal("GPS Update", 5, BACKGROUND_TASK));
     scheduler.push(Signal("Brake Fault", 9, HARDWARE_INTERRUPT));
 
-    std::cout << "Processing " << scheduler.size() << " signals based on priority:\n" << std::endl;
+    std::cout << "Processing " << scheduler.size() << " signals based on priority (>7 is Critical):\n" << std::endl;
 
-    while (!scheduler.empty()) {
+    double time = 0;
+    while (!scheduler.empty())
+    {
         Signal top = scheduler.top(); // Get highest priority
         
         if (top.priority > 7) { // Arbitrary threshold for critical signals
@@ -22,10 +26,14 @@ int main() {
             std::cout << "[NORMAL]   ";
         }
 
-        std::cout << "Handling: " << top.name << " (P: " << top.priority << ")" << std::endl;
-        
+        std::cout << "[TICK: " << time << "s] Handling: " << top.name << " (P: " << top.priority << ")" << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(top.processingTime)); // Simulate processing time
+        time += top.processingTime; //update time
         scheduler.pop(); // Remove it
     }
+
+    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "SIMULATION COMPLETE. Final Clock: " << time << " seconds." << std::endl;
 
     return 0;
 }
