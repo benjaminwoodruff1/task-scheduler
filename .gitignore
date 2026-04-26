@@ -39,6 +39,7 @@
 *.out
 *.app
 scheduler_test
+run_tests
 scehduler
 
 # Build directories

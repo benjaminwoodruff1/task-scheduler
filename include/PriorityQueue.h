@@ -111,6 +111,15 @@ public:
     }
 
     /**
+     * @brief Return a reference to the element at the back of the heap.
+     * 
+     * @return const_reference to the element at the back of the heap.
+     */
+    const_reference back() const {
+        return c.at(c.size() - 1);
+    }
+
+    /**
      * @brief Return whether the heap is empty. This is the same as whether the underlying container, c, is empty.
      * 
      * O(1)
